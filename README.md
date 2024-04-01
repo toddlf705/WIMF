@@ -10,8 +10,9 @@ This full-stack MERN (Mongoose/Express/React/Node) application is designed to tr
 - **My Fridge**: Allows users to view a list of items in the fridge at a glance as well as which items are soon to be expired. The lists can be added, deleted, and modified.
 - **My Fridge/Search Bar**: Search function allows users to search items by any keywords they wish to search for.
 - **My Fridge/Filter**: Users can pull a filtered list of items by filtering items by "expiration date", "purchased date", "store name", or "brand name".
-- **Recipe API**: A 3rd party recipe API is linked to each soon-to-be-expired items, which gives the users an idea of what to cook with expiring ingredeints, thus preventing a creation of food trash.
-- 
+- **Recipe API**: A 3rd party recipe API is linked to each soon-to-be-expired items, which gives the users an idea of what to cook with expiring ingredeints, thus preventing users from wasting money and creating food trash.
+
+  
 <h2>Branstorming Functionalities</h2>
 <img src="brainstorm.png" width="600px"/>
 
