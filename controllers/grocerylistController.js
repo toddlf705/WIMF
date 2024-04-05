@@ -25,8 +25,8 @@ const getGroceryById = async (req, res) => {
 const createGrocery = async (req, res) => {
     try {
         console.log(req.body)
-        const { item, quantity, isPurchased } = req.body
-        const grocerylist = { item, quantity, isPurchased }
+        const { item, quantity, isPurchased, brand, purchased_date, expiration_date, purchased_store } = req.body
+        const grocerylist = { item, quantity, isPurchased, brand, purchased_date, expiration_date, purchased_store }
         console.log(grocerylist)
         const grocery = new Grocerylist(grocerylist)
         await grocery.save()

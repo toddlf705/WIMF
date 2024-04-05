@@ -14,7 +14,6 @@ const Grocerylist = () => {
     const { addMyfridge } = useContext(MyfridgeContext)
     const navigate = useNavigate()
 
-
     const handleDeleteGrocery = async (groceryId) => {
         try {
             await axios.delete(`http://localhost:3001/grocerylist/${groceryId}`)
@@ -27,19 +26,23 @@ const Grocerylist = () => {
     const handleCheckout = async (id) => {
         try {
             const grabItem = groceries.find(grocery => grocery._id === id)
-            console.log(grabItem)
-            console.log('working')
 
-            // const checkoutItem = await axios.post(`http://localhost:3001/myfridge`, grabItem)
+            const checkoutItem = await axios.post(`http://localhost:3001/myfridge`, grabItem)
 
-            // addMyfridge(checkoutItem.data)
-            console.log(myfridge)
+            addMyfridge(checkoutItem)
 
             alert(`You've added ${grabItem.item} to My Fridge`)
-
         } catch (e) {
             console.error(e)
         }
+
+        try {
+            await axios.delete(`http://localhost:3001/grocerylist/${id}`)
+            setGrocery(groceries.filter(grocery => grocery._id !== id))
+        } catch (e) {
+            console.error(e)
+        }
+
     }
 
     return(
@@ -47,7 +50,7 @@ const Grocerylist = () => {
             <Nav />
             {groceries.map((grocery)=> (
                 <div className='grocerylist-card' key={grocery._id}>
-                    <p> {grocery.item} </p>
+                    <p> {grocery.item} </p> 
                     <p> {grocery.quantity} </p>
                     <button onClick={()=> handleCheckout(grocery._id)}><img src={checkout_icon} width='50px' /></button>
                     <button onClick={()=> handleDeleteGrocery(grocery._id)}><img src={delete_icon} width='50px' /></button>

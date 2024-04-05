@@ -5,7 +5,6 @@ export const GroceryContext = createContext()
 
 const GroceryContextProvider = (props) => {
     const [groceries, setGrocery] = useState([])
-    // const [myfridge, setMyFridge] = useState([])
 
     useEffect(()=> {
         const getGrocerylist = async () => {
@@ -21,8 +20,8 @@ const GroceryContextProvider = (props) => {
         getGrocerylist()
     },[])
 
-    const addNewGrocery = async (item, quantity, isPurchased) => {
-        const grocerylist = {item, quantity, isPurchased}
+    const addNewGrocery = async (item, quantity, isPurchased, brand, purchased_date, expiration_date, purchased_store) => {
+        const grocerylist = {item, quantity, isPurchased, brand, purchased_date, expiration_date, purchased_store}
         try {
             const response = await axios.post('http://localhost:3001/grocerylist', grocerylist)
             if (response.data) {

@@ -9,6 +9,10 @@ const Addgrocery = () => {
     const [item, setItem] =  useState('')
     const [quantity, setQty] = useState('')
     const [isPurchased, setPurchased] = useState(false)
+    const [brand, setBrand] = useState('')
+    const [purchased_date, setPurchDate] = useState('')
+    const [expiration_date, setExpDate] = useState('')
+    const [purchased_store, setStore] = useState('')
 
 
     const handleItemChange = (e) => {
@@ -21,7 +25,7 @@ const Addgrocery = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        addNewGrocery(item, quantity, isPurchased)
+        addNewGrocery(item, quantity, isPurchased, brand, purchased_date, expiration_date, purchased_store)
         navigate ('/grocery_list')
     }
 

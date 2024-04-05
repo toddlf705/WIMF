@@ -6,17 +6,29 @@ const main = async () => {
     const listGrocery = [
         {
             item: 'apple', 
-            quantity: '6 pcks',
+            brand : null,
+            quantity : '6 pcks',
+            purchased_date: null,
+            expiration_date: null,
+            purchased_store: null,
             isPurchased: false
         },
         {
             item: 'milk', 
-            quantity: '1 gal',
+            brand : null,
+            quantity : '1 gal',
+            purchased_date: null,
+            expiration_date: null,
+            purchased_store: null,
             isPurchased: false
         },
         {
             item: 'coffee beans', 
-            quantity: '',
+            brand : null,
+            quantity : '1 lbs',
+            purchased_date: null,
+            expiration_date: null,
+            purchased_store: null,
             isPurchased: false
         },
     ]
