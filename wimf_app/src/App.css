@@ -1,0 +1,25 @@
+
+
+.home-container {
+  background-color: #265025;
+  height: 844px;
+  color: white;
+  display: grid;
+  place-items: center;
+}
+
+.logo-container {
+  text-align: center;
+}
+
+.logo-container h4{
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+/* Grocery List */
+
+.grocerylist-card {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
