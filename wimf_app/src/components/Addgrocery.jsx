@@ -26,6 +26,7 @@ const Addgrocery = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         addNewGrocery(item, quantity, isPurchased, brand, purchased_date, expiration_date, purchased_store)
+        
         navigate ('/grocery_list')
     }
 

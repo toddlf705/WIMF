@@ -10,8 +10,8 @@ import { MyfridgeContext } from '../context/MyfridgeContext'
 
 const Grocerylist = () => {
     const { groceries, setGrocery } = useContext(GroceryContext)
-    const { myfridge, setMyfridge } = useContext(MyfridgeContext)
-    const { addMyfridge } = useContext(MyfridgeContext)
+    const { myfridge, setMyfridge, addMyfridge } = useContext(MyfridgeContext)
+  
     const navigate = useNavigate()
 
     const handleDeleteGrocery = async (groceryId) => {
@@ -30,7 +30,7 @@ const Grocerylist = () => {
             const checkoutItem = await axios.post(`http://localhost:3001/myfridge`, grabItem)
 
             addMyfridge(checkoutItem)
-
+            setMyfridge([...myfridge, checkoutItem])
             alert(`You've added ${grabItem.item} to My Fridge`)
         } catch (e) {
             console.error(e)

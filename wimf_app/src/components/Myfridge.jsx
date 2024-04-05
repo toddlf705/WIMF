@@ -1,6 +1,5 @@
 import Nav from './Nav'
-import axios from 'axios'
-import React, { useEffect, useState, useContext } from 'react'
+import React, { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import edit_icon from '../assets/edit_icon.png'
 import { MyfridgeContext } from '../context/MyfridgeContext'

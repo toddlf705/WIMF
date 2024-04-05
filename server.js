@@ -33,6 +33,6 @@ app.post('/myfridge', myfridgeController.createMyfridge)
 app.put('/myfridge/:id', myfridgeController.updateMyfridge)
 
 app.delete('/grocerylist/:id', grocerylistController.deleteGrocery)
-app.delete('myfridge/:id', myfridgeController.deleteMyfridge)
+app.delete('/myfridge/:id', myfridgeController.deleteMyfridge)
 
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`))
