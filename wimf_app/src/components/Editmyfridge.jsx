@@ -19,7 +19,7 @@ const Editmyfridge = () => {
             console.log(update._id)
 
             } catch (error) {
-            console.log(error)
+            console.log('Error', error)
             }
         }
         getMyfridgeById()
@@ -31,14 +31,15 @@ const Editmyfridge = () => {
         return dateOnly
     }
 
-    // const handleUpdate = async () => {
-    //     try {
-    //         await axios.put(`http://localhost:3001/myfridge/${id}`, myfridge)
-    //     } catch (error) {
-    //         console.error('Failed to update data')
-    //     }
-    //     navigate('/my_fridge')
-    // }
+    const handleUpdate = async (fridgeId) => {
+        try {
+            const response = await axios.put(`http://localhost:3001/myfridge/${fridgeId}`, update)
+            setMyfridge(...myfridge, response.data)
+        } catch (error) {
+            console.error('Failed to update data', error)
+        }
+        navigate('/my_fridge')
+    }
 
     const handleChange = (e) => {
         setUpdate({...update, [e.target.id]: e.target.value})
@@ -54,7 +55,7 @@ const Editmyfridge = () => {
             navigate('/my_fridge')
         
         } catch (e) {
-            console.error(e)
+            console.log('Error', e)
         }
     }
 
@@ -64,11 +65,11 @@ const Editmyfridge = () => {
             <Nav/>
             <button onClick={()=>navigate('/my_fridge')}>←</button>
             <div>
-                {/* <label>Item:</label>
+                <label>Item:</label>
                 <input type='text' id='item' value = {update.item} onChange={handleChange}></input>
 
                 <label>Qty: </label>
-                <input type="text" id='quantity' value={update.quantity} onChange={handleChange}></input> */}
+                <input type="text" id='quantity' value={update.quantity} onChange={handleChange}></input>
 
                 {/* <label>Brand: </label>
                 <input type="text" id='brand' value={update.brand} onChange={handleChange} ></input> */}
@@ -83,7 +84,7 @@ const Editmyfridge = () => {
                 <input type="text" id='purch_store' value={update.purchased_store} onChange={handleChange}></input> */}
 
 
-                <button> Save</button>
+                <button onClick={()=>handleUpdate(update._id)}> Save</button>
                 <button onClick={()=>handleDelete(update._id)}>Delete</button>
             </div>
         </div>

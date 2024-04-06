@@ -9,11 +9,12 @@ const myfridgeController = require('./controllers/myfridgeController')
 
 const app = express()
 app.use(express.json())
-app.use(bodyParser.json())
 app.use(cors({
     origin: ['http://localhost:5173'],
     credentials: true
 }))
+app.use(bodyParser.json())
+
 const PORT = process.env.PORT || 3001
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))

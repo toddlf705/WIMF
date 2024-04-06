@@ -57,7 +57,7 @@ const Grocerylist = () => {
                     
                 </div>
             ))}
-            <button onClick={()=> navigate('/add_grocery')}> + </button>
+            <button onClick={()=> navigate('/add_grocery')} className='add-btn'> + </button>
 
 
         </div>

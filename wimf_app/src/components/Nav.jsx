@@ -4,8 +4,12 @@ const Nav = () => {
 
     return (
         <div className='nav-container'>
-            <Link to="/grocery_list"> Grocery List </Link>
-            <Link to="/my_fridge">My Fridge</Link>
+            <div className='nav'>
+                <Link to="/grocery_list"> Grocery List </Link>
+            </div>
+            <div className='nav'>
+                <Link to="/my_fridge">My Fridge</Link>
+            </div>
         </div>
     )
 }

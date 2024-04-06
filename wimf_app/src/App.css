@@ -21,5 +21,68 @@
 
 .grocerylist-card {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 40% 30% 10% 10%;
+  justify-content: center;
+  box-shadow: 2px 2px 7px rgb(137, 162, 136, 0.8);
+  padding: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.grocerylist-card button {
+  border: none;
+  background-color: transparent;
+
+}
+
+.add-btn{
+  border-radius: 50px;
+  width: 45px;
+  height: 45px;
+  font-size: 30px;
+  background-color: rgb(38, 80, 37, 0.75);
+  color: white;
+  border-color: rgb(38, 80, 37);
+  float: right;
+}
+
+/* My Fridge */
+.myfridgelist-card{
+  display: grid;
+  grid-template-columns: 45% 35% 10%;
+  justify-content: center;
+  box-shadow: 2px 2px 7px rgb(137, 162, 136, 0.8);
+  padding: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.myfridgelist-card button {
+  border: none;
+  background-color: transparent;
+}
+
+/* Nav Bar */
+
+.nav-container{
+  border: none;
+  height: 50px;
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
+}
+
+.nav-container a {
+  text-decoration: none;
+}
+
+.nav {
+  text-align: center;
+  line-height: 60px;
+  font-size: 20px;
+  height: 55px;
+  width: 100%;
+  margin-top: 10px;
+  border: solid black;
+  border-left
 }
