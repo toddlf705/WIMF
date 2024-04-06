@@ -34,8 +34,8 @@ const Addgrocery = () => {
     return(
         <div className='addgrocery-container'>
             <Nav/> 
-            <button onClick={()=>navigate('/grocery_list')}>←</button>
-            <form onSubmit={handleSubmit}>
+            <button onClick={()=>navigate('/grocery_list')} className='back-btn'>←</button>
+            <form onSubmit={handleSubmit}className='form-container'>
                 <label>Item: </label>
                 <input type="text" id='item' value ={item} onChange={handleItemChange} required></input>
                 <label>Qty: </label>

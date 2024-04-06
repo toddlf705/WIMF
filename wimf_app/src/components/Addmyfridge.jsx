@@ -67,8 +67,8 @@ const Addmyfridge = () => {
     return(
         <div className='addmyfridge-container'>
             <Nav />
-            <button onClick={()=>navigate('/my_fridge')}>←</button>
-            <form onSubmit ={handleSubmit}>
+            <button onClick={()=>navigate('/my_fridge')} className='back-btn'>←</button>
+            <form onSubmit ={handleSubmit} className='form-container'>
                 <label>Item:</label>
                 <p className='alert'>{itemAlert}</p>
                 <input type='text' id='item' value ={item} onChange={handleItemChange}></input>
