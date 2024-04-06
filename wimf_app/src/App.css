@@ -86,17 +86,17 @@ body {
 /* Nav Bar */
 
 .nav-container{
-  height: 55px;
-  display: flex;
-  justify-content: space-evenly;
+  height: 90px;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  margin-top: 20px;
   margin-bottom: 20px;
 }
 
-.nav-container button {
-  border: none;
-  background-color: transparent;
-  font-size: 20px;
-  color: rgb(38, 80, 37);
+.nav-menu {
+  height: 55px;
+  width: 100%;
+  display: flex;
 }
 
 .nav {
@@ -107,6 +107,26 @@ body {
   line-height: 55px;
   border: 1px solid rgb(38, 80, 37);
   border-bottom: 1px transparent;
+}
+
+.nav-menu button {
+  border: none;
+  background-color: transparent;
+  font-size: 20px;
+  color: rgb(38, 80, 37);
+}
+
+.nav-icons{
+  height: 35px;
+  width: 100%;
+  display: flex;
+  justify-content: right;
+  margin-top: 10px;
+}
+
+.nav-icons button{
+  border: none;
+  background-color: transparent;
 }
 
 /* Add Grocery */
