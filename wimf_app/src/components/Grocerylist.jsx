@@ -1,11 +1,14 @@
 import Nav from './Nav'
 import checkout_icon from '../assets/checkout_icon.png'
 import delete_icon from '../assets/delete_icon.png'
+import search_icon from '../assets/search_icon.png'
+import filter_icon from '../assets/filter_icon.png'
 import axios from 'axios'
 import React, { useState, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { GroceryContext } from '../context/GroceryContext'
 import { MyfridgeContext } from '../context/MyfridgeContext'
+
 
 
 const Grocerylist = () => {
@@ -48,6 +51,14 @@ const Grocerylist = () => {
     return(
         <div className='grocerylist-container'>
             <Nav />
+            <div className='nav-icons'>
+                <div className='search'>
+                    <button><img src={search_icon} width='30px'/></button>
+                </div>
+                <div className='filter'>
+                    <button><img src={filter_icon} width='30px'/></button>
+                </div>
+            </div>
             {groceries.map((grocery)=> (
                 <div className='grocerylist-card' key={grocery._id}>
                     <p> {grocery.item} </p> 
