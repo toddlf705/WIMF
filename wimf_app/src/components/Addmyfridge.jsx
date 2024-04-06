@@ -102,7 +102,7 @@ const Addmyfridge = () => {
                 </div>
 
                 <div className='submit-btn'>
-                    <button type='submit'>Save</button>
+                    <button type='submit'>SAVE</button>
                 </div>
             </form>
         </div>

@@ -47,7 +47,7 @@ const Addgrocery = () => {
                     <input type="text" id='quantity' value={quantity} onChange={handleQtyChange} required></input>
                 </div>
                 <div className='submit-btn'>
-                    <button type='submit'>Save</button>
+                    <button type='submit'>SAVE</button>
                 </div>
             </form>
         </div>

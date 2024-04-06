@@ -1,14 +1,15 @@
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const Nav = () => {
+    const navigate = useNavigate()
 
     return (
         <div className='nav-container'>
             <div className='nav'>
-                <Link to="/grocery_list"> Grocery List </Link>
+                <button onClick={()=>navigate('/grocery_list')}>Grocery List</button>
             </div>
             <div className='nav'>
-                <Link to="/my_fridge">My Fridge</Link>
+                <button onClick={()=>navigate('/my_fridge')}>My Fridge</button>
             </div>
         </div>
     )

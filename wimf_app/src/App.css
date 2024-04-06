@@ -86,15 +86,16 @@ body {
 /* Nav Bar */
 
 .nav-container{
-  border: solid black;
   height: 55px;
   display: flex;
   justify-content: space-evenly;
   margin-bottom: 20px;
 }
 
-.nav-container a {
-  text-decoration: none;
+.nav-container button {
+  border: none;
+  background-color: transparent;
+  font-size: 20px;
   color: rgb(38, 80, 37);
 }
 
@@ -211,9 +212,9 @@ body {
   justify-content: space-evenly;
 }
 
-.submit-delete-btn button {
-  width: 78px;
-  height: 38px;
+#submit-delete {
+  width: 80px;
+  height: 42px;
   border: none;
   border-radius: 4px;
   padding: 3px;
@@ -222,6 +223,21 @@ body {
   font-size: 17px;
 }
 
-.submit-delete-btn button:hover {
+#submit-delete:hover {
+  background-color: rgb(38, 80, 37, 0.8);
+}
+
+#move-to-grocery {
+  width: 80px;
+  height: 42px;
+  border: none;
+  border-radius: 4px;
+  padding: 5px;
+  background: rgb(38, 80, 37);
+  color: white;
+  font-size: 12px;
+}
+
+#move-to-grocery:hover {
   background-color: rgb(38, 80, 37, 0.8);
 }

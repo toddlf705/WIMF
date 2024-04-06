@@ -95,9 +95,11 @@ const Editmyfridge = () => {
                 </div> */}
 
                 <div className='submit-delete-btn'>
-                    <button onClick={()=>handleUpdate(update._id)}> Save</button>
+                    <button id='submit-delete'onClick={()=>handleUpdate(update._id)}> SAVE</button>
         
-                    <button onClick={()=>handleDelete(update._id)}>Delete</button>
+                    <button id='submit-delete' onClick={()=>handleDelete(update._id)}>DELETE</button>
+
+                    <button id='move-to-grocery'>MOVE TO GROCERY</button>
                 </div>
             </div>
         </div>
