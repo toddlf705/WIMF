@@ -63,29 +63,42 @@ const Editmyfridge = () => {
     return(
         <div className='Editmyfridge-container'>
             <Nav/>
-            <button onClick={()=>navigate('/my_fridge')}>←</button>
-            <div>
-                <label>Item:</label>
-                <input type='text' id='item' value = {update.item} onChange={handleChange}></input>
+            <button onClick={()=>navigate('/my_fridge')} className='back-btn'>←</button>
+            <div className='form-container-myfridge'>
+                <div className='fridge-input'>
+                    <label>Item:</label>
+                    <input type='text' id='item' value = {update.item} onChange={handleChange}></input>
+                </div>
 
-                <label>Qty: </label>
-                <input type="text" id='quantity' value={update.quantity} onChange={handleChange}></input>
+                <div className='fridge-input'>
+                    <label>Qty: </label>
+                    <input type="text" id='quantity' value={update.quantity} onChange={handleChange}></input>
+                </div>
 
-                {/* <label>Brand: </label>
-                <input type="text" id='brand' value={update.brand} onChange={handleChange} ></input> */}
+                {/* <div className='fridge-input'>
+                    <label>Brand: </label>
+                    <input type="text" id='brand' value={update.brand} onChange={handleChange} ></input>
+                </div>
+                <div className='fridge-input'>
+                    <label id='long-label'>Purchased Date: </label>
+                    <input type="date" id='purch_date' value={formatDate(update.purchased_date)} onChange={handleChange}></input>
+                </div>
 
-                {/* <label>Purchased Date: </label>
-                <input type="date" id='purch_date' value={formatDate(update.purchased_date)} onChange={handleChange}></input> */}
+                <div className='fridge-input'>
+                    <label id='long-label'>Expiration Date: </label>
+                    <input type="date" id='exp_date' value={formatDate(update.expiration_date)} onChange={handleChange}></input>
+                </div>
 
-                {/* <label>Expiration Date: </label>
-                <input type="date" id='exp_date' value={formatDate(update.expiration_date)} onChange={handleChange}></input> */}
+                <div className='fridge-input'>
+                    <label id='long-label'>Purchased Store: </label>
+                    <input type="text" id='purch_store' value={update.purchased_store} onChange={handleChange}></input>
+                </div> */}
 
-                {/* <label>Purchased Store: </label>
-                <input type="text" id='purch_store' value={update.purchased_store} onChange={handleChange}></input> */}
-
-
-                <button onClick={()=>handleUpdate(update._id)}> Save</button>
-                <button onClick={()=>handleDelete(update._id)}>Delete</button>
+                <div className='submit-delete-btn'>
+                    <button onClick={()=>handleUpdate(update._id)}> Save</button>
+        
+                    <button onClick={()=>handleDelete(update._id)}>Delete</button>
+                </div>
             </div>
         </div>
     )

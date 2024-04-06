@@ -68,28 +68,42 @@ const Addmyfridge = () => {
         <div className='addmyfridge-container'>
             <Nav />
             <button onClick={()=>navigate('/my_fridge')} className='back-btn'>←</button>
-            <form onSubmit ={handleSubmit} className='form-container'>
-                <label>Item:</label>
+            <form onSubmit ={handleSubmit} className='form-container-myfridge'>
+                <div className='fridge-input'>
+                    <label>Item:</label>
+                    <input type='text' id='item' value ={item} onChange={handleItemChange}></input>
+                </div>
                 <p className='alert'>{itemAlert}</p>
-                <input type='text' id='item' value ={item} onChange={handleItemChange}></input>
 
-                <label>Qty: </label>
-                <input type="text" id='quantity' value={quantity} onChange={handleQtyChange}></input>
+                <div className='fridge-input'>
+                    <label>Qty: </label>
+                    <input type="text" id='quantity' value={quantity} onChange={handleQtyChange}></input>
+                </div>
 
-                <label>Brand: </label>
-                <input type="text" id='brand' value={brand} onChange={handleBrandChange}></input>
+                <div className='fridge-input'>
+                    <label>Brand: </label>
+                    <input type="text" id='brand' value={brand} onChange={handleBrandChange}></input>
+                </div>
 
-                <label>Purchased Date: </label>
-                <input type="date" id='purch_date' value={purchased_date} onChange={handlePurchChange}></input>
+                <div className='fridge-input'>
+                    <label id='long-label'>Purchased Date: </label>
+                    <input type="date" id='purch_date' value={purchased_date} onChange={handlePurchChange}></input>
+                </div>
 
-                <label>Expiration Date: </label>
+                <div className='fridge-input'>
+                    <label id='long-label'>Expiration Date: </label>
+                    <input type="date" id='exp_date' value={expiration_date} onChange={handleExpChange}></input>
+                </div>
                 <p className='alert'>{expAlert}</p>
-                <input type="date" id='exp_date' value={expiration_date} onChange={handleExpChange}></input>
 
-                <label>Purchased Store: </label>
-                <input type="text" id='purch_store' value={purchased_store} onChange={handleStoreChange}></input>
+                <div className='fridge-input'>
+                    <label id='long-label'>Purchased Store: </label>
+                    <input type="text" id='purch_store' value={purchased_store} onChange={handleStoreChange}></input>
+                </div>
 
-                <button type='submit'>Save</button>
+                <div className='submit-btn'>
+                    <button type='submit'>Save</button>
+                </div>
             </form>
         </div>
     )
