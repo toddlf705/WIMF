@@ -1,22 +1,24 @@
 import Nav from './Nav'
 import axios from 'axios'
+import moment from 'moment'
 import React, { useEffect, useState, useContext } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { MyfridgeContext } from '../context/MyfridgeContext'
+import { GroceryContext } from '../context/GroceryContext'
 
 const Editmyfridge = () => {
     const { myfridge, setMyfridge } = useContext(MyfridgeContext)
+    const { groceries, setGrocery } = useContext(GroceryContext)
     const [update, setUpdate] = useState()
     const { id } = useParams()
     const navigate = useNavigate()
+
 
     useEffect(()=> {
         const getMyfridgeById = async () => {
             try {
             const response = await axios.get(`http://localhost:3001/myfridge/${id}`)
-            console.log(response.data)
             setUpdate(response.data)
-            console.log(update._id)
 
             } catch (error) {
             console.log('Error', error)
@@ -27,7 +29,7 @@ const Editmyfridge = () => {
 
     const formatDate = (inputDate) => {
         const date = `${inputDate}`
-        const dateOnly = (date.slice(0, 10))
+        const dateOnly = date.slice(0, 10)
         return dateOnly
     }
 
@@ -43,7 +45,11 @@ const Editmyfridge = () => {
 
     const handleChange = (e) => {
         setUpdate({...update, [e.target.id]: e.target.value})
-        console.log(update)
+    }
+
+    const handleDateChange = (e) => {
+        const newDate = moment(new Date(e.target.value)).add(1, 'd').format('YYYY-MM-DD')
+        setUpdate({...update, [e.target.id]: newDate})
     }
 
     const handleDelete = async (fridgeId) => {
@@ -59,6 +65,32 @@ const Editmyfridge = () => {
         }
     }
 
+    const handleMoveToGrocery = async (id) => {
+        try {
+            await axios.post(`http://localhost:3001/grocerylist`, {
+                item: update.item,
+                brand: '',
+                quantity: update.quantity,
+                purchased_date: null,
+                expiration_date: null, 
+                purchased_store: '',
+                isPurchased: false
+        })
+            setGrocery(...groceries, update)
+            console.log('line 82')
+            console.log(update)
+        } catch (e) {
+            console.error(e)
+        }
+
+        try {
+            await axios.delete(`http://localhost:3001/myfridge/${id}`)
+            setMyfridge(myfridge.filter(fridge => fridge._id !== id))
+        } catch (e) {
+            console.error(e)
+        }
+        navigate('/my_fridge')
+    }
 
     return(
         <div className='Editmyfridge-container'>
@@ -75,31 +107,32 @@ const Editmyfridge = () => {
                     <input type="text" id='quantity' value={update.quantity} onChange={handleChange}></input>
                 </div>
 
-                {/* <div className='fridge-input'>
+                <div className='fridge-input'>
                     <label>Brand: </label>
                     <input type="text" id='brand' value={update.brand} onChange={handleChange} ></input>
                 </div>
+
                 <div className='fridge-input'>
                     <label id='long-label'>Purchased Date: </label>
-                    <input type="date" id='purch_date' value={formatDate(update.purchased_date)} onChange={handleChange}></input>
+                    <input type="date" id='purchased_date' value={formatDate(update.purchased_date)} onChange={handleDateChange}></input>
                 </div>
 
                 <div className='fridge-input'>
                     <label id='long-label'>Expiration Date: </label>
-                    <input type="date" id='exp_date' value={formatDate(update.expiration_date)} onChange={handleChange}></input>
+                    <input type="date" id='expiration_date' value={formatDate(update.expiration_date)} onChange={handleDateChange}></input>
                 </div>
 
                 <div className='fridge-input'>
                     <label id='long-label'>Purchased Store: </label>
-                    <input type="text" id='purch_store' value={update.purchased_store} onChange={handleChange}></input>
-                </div> */}
+                    <input type="text" id='purchased_store' value={update.purchased_store} onChange={handleChange}></input>
+                </div>
 
                 <div className='submit-delete-btn'>
                     <button id='submit-delete'onClick={()=>handleUpdate(update._id)}> SAVE</button>
         
                     <button id='submit-delete' onClick={()=>handleDelete(update._id)}>DELETE</button>
 
-                    <button id='move-to-grocery'>MOVE TO GROCERY</button>
+                    <button id='move-to-grocery' onClick={()=>handleMoveToGrocery(update._id)}>MOVE TO GROCERY</button>
                 </div>
             </div>
         </div>
