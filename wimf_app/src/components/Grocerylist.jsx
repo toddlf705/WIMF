@@ -14,7 +14,7 @@ import { MyfridgeContext } from '../context/MyfridgeContext'
 const Grocerylist = () => {
     const { groceries, setGrocery } = useContext(GroceryContext)
     const { myfridge, setMyfridge, addMyfridge } = useContext(MyfridgeContext)
-  
+    
     const navigate = useNavigate()
 
     const handleDeleteGrocery = async (groceryId) => {

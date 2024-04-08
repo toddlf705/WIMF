@@ -13,6 +13,9 @@ const Editmyfridge = () => {
     const { id } = useParams()
     const navigate = useNavigate()
 
+    const [itemAlert, setItemAlert] = useState('')
+    const [expAlert, setExpAlert] = useState('')
+
 
     useEffect(()=> {
         const getMyfridgeById = async () => {
@@ -35,11 +38,27 @@ const Editmyfridge = () => {
 
     const handleUpdate = async (fridgeId) => {
         try {
+            let initAlert = ''
+            setItemAlert(initAlert)
+            setExpAlert(initAlert)
+    
+            if (!update.item) {
+                setItemAlert ('Item name is required')
+                return
+            }
+    
+            if (update.expiration_date==null | !update.expiration_date) {
+                setExpAlert('Expiration date is required')
+                return
+            }
+
             const response = await axios.put(`http://localhost:3001/myfridge/${fridgeId}`, update)
             setMyfridge(...myfridge, response.data)
+
         } catch (error) {
             console.error('Failed to update data', error)
         }
+        
         navigate('/my_fridge')
     }
 
@@ -101,6 +120,7 @@ const Editmyfridge = () => {
                     <label>Item:</label>
                     <input type='text' id='item' value = {update.item} onChange={handleChange}></input>
                 </div>
+                <p className='alert'>{itemAlert}</p>
 
                 <div className='fridge-input'>
                     <label>Qty: </label>
@@ -121,6 +141,7 @@ const Editmyfridge = () => {
                     <label id='long-label'>Expiration Date: </label>
                     <input type="date" id='expiration_date' value={formatDate(update.expiration_date)} onChange={handleDateChange}></input>
                 </div>
+                <p className='alert'>{expAlert}</p>
 
                 <div className='fridge-input'>
                     <label id='long-label'>Purchased Store: </label>

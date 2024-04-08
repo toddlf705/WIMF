@@ -24,6 +24,12 @@ body {
   margin-bottom: 30px;
 }
 
+/* Alerts */
+.alert {
+  color: red;
+  margin-left: 20px;
+}
+
 /* Grocery List */
 
 .grocerylist-card {
@@ -143,7 +149,7 @@ body {
   box-shadow: 2px 2px 7px rgb(137, 162, 136, 0.8);
   border-radius: 6px;
   padding: 20px;
-  height: 230px;
+  min-height: 250px;
   margin-top: 10px;
 }
 
@@ -214,7 +220,7 @@ body {
   box-shadow: 2px 2px 7px rgb(137, 162, 136, 0.8);
   border-radius: 6px;
   padding: 20px;
-  height: 495px;
+  min-height: 495px;
   margin-top: 10px;
 }
 

@@ -13,6 +13,7 @@ const Addgrocery = () => {
     const [purchased_date, setPurchDate] = useState('')
     const [expiration_date, setExpDate] = useState('')
     const [purchased_store, setStore] = useState('')
+    const [itemAlert, setItemAlert] = useState('')
 
 
     const handleItemChange = (e) => {
@@ -25,6 +26,14 @@ const Addgrocery = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+
+        let initAlert = ''
+        setItemAlert(initAlert)
+        if (!item) {
+            setItemAlert('Item name is required')
+            return
+        }
+
         addNewGrocery(item, quantity, isPurchased, brand, purchased_date, expiration_date, purchased_store)
         
         navigate ('/grocery_list')
@@ -39,12 +48,13 @@ const Addgrocery = () => {
 
                 <div className='input'>
                     <label>Item: </label>
-                    <input type="text" id='item' value ={item} onChange={handleItemChange} required></input>
+                    <input type="text" id='item' value ={item} onChange={handleItemChange}></input>
                 </div>
+                <p className='alert'>{itemAlert}</p>
 
                 <div className='input'>
                     <label>Qty: </label>
-                    <input type="text" id='quantity' value={quantity} onChange={handleQtyChange} required></input>
+                    <input type="text" id='quantity' value={quantity} onChange={handleQtyChange}></input>
                 </div>
                 <div className='submit-btn'>
                     <button type='submit'>SAVE</button>
