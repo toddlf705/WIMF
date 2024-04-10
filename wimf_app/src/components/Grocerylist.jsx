@@ -56,10 +56,8 @@ const Grocerylist = () => {
                 <div className='search'>
                     <button onClick={()=>navigate('/search_grocery')}><img src={search_icon} width='30px'/></button>
                 </div>
-                <div className='filter'>
-                    <button><img src={filter_icon} width='30px'/></button>
-                </div>
             </div>
+            <div className='card-overflow-control'>
             {groceries.map((grocery)=> (
                 <div className='grocerylist-card' key={grocery._id}>
                     <p> {grocery.item} </p> 
@@ -69,7 +67,10 @@ const Grocerylist = () => {
                     
                 </div>
             ))}
+            </div>
+
             <button onClick={()=> navigate('/add_grocery')} className='add-btn'> + </button>
+            <Footer/>
         </div>
     )
 }

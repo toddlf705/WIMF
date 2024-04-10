@@ -32,6 +32,7 @@ body {
 
 /* Grocery List */
 
+
 .grocerylist-card {
   display: grid;
   grid-template-columns: 40% 30% 10% 10%;
@@ -61,7 +62,9 @@ body {
   background-color: rgb(38, 80, 37);
   color: white;
   border-color: rgb(38, 80, 37);
+  display: absolute;
   float: right;
+  margin-top: -50px;
 }
 
 .add-btn:hover {
@@ -69,6 +72,7 @@ body {
 }
 
 /* My Fridge */
+
 .myfridgelist-card{
   display: grid;
   grid-template-columns: 45% 35% 10%;
@@ -88,6 +92,17 @@ body {
 .myfridgelist-card button:hover {
   scale: 1.2;
  }
+
+ .card-overflow-control {
+  height: 620px;
+  overflow: scroll;
+ }
+
+ .card-overflow-control::-webkit-scrollbar {
+  display: none;
+ }
+
+
 
 /* Nav Bar */
 
@@ -197,6 +212,28 @@ body {
   color: grey;
   font-size: 14px;
   margin-top: -30px;
+}
+
+/* Filter Page */
+.filter-header {
+  width: 99%;
+  height: 140px;
+  margin: 0 auto;
+}
+
+.filter-and-back {
+  display: flex;
+  align-items: center;
+  height: 80px;
+}
+
+.filter-and-back p {
+  font-size: 22px;
+  margin-left: 16px;
+}
+
+.filter-and-back button {
+  margin-top: 5px;
 }
 
 /* Add Grocery */

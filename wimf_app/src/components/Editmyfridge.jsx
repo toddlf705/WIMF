@@ -23,8 +23,6 @@ const Editmyfridge = () => {
             const response = await axios.get(`http://localhost:3001/myfridge/${id}`)
             setUpdate(response.data)
 
-            // if (!update) return <p>Loading...</p>
-
             } catch (error) {
             console.log('Error', error)
             }
@@ -55,7 +53,7 @@ const Editmyfridge = () => {
             }
 
             const response = await axios.put(`http://localhost:3001/myfridge/${fridgeId}`, update)
-            setMyfridge(...myfridge, response.data)
+            setMyfridge([...myfridge, response.data])
 
         } catch (error) {
             console.error('Failed to update data', error)

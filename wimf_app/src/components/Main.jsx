@@ -6,6 +6,7 @@ import Addmyfridge from'./Addmyfridge'
 import Editmyfridge from'./Editmyfridge'
 import SearchMyfridge from './SearchMyfridge'
 import SearchGrocery from './SearchGrocery'
+import Filter from './Filter'
 import {Routes, Route} from 'react-router-dom'
 
 const Main = () => {
@@ -21,6 +22,7 @@ const Main = () => {
             <Route path='/edit_myfridge/:id' element={<Editmyfridge />} />
             <Route path='/search_myfridge' element={<SearchMyfridge/>} />
             <Route path='/search_grocery' element={<SearchGrocery/>} />
+            <Route path='/filter' element={<Filter/>} />
         </Routes>
         </div>
     )

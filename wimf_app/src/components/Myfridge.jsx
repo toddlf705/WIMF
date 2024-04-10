@@ -14,10 +14,15 @@ const Myfridge = () => {
 
     const ExpirationAlert = (expDate) => {
         const today = new Date()
-        const diff = Math.abs(new Date(expDate) - today)
+        const expiration = new Date(expDate)
+        const diff = (expiration - today)
         const rounded = Math.floor(diff / 8.64e7)
+
+        if (rounded <= 0)
+            return 'expired'
+
         if (rounded <= 15)
-        return `expires in ${rounded} days`
+            return `expires in ${rounded} days`
     }
 
     return(
@@ -28,9 +33,11 @@ const Myfridge = () => {
                     <button onClick={()=>navigate('/search_myfridge')}><img src={search_icon} width='30px'/></button>
                 </div>
                 <div className='filter'>
-                    <button><img src={filter_icon} width='30px'/></button>
+                    <button onClick={()=>navigate('/filter')}><img src={filter_icon} width='30px'/></button>
                 </div>
             </div>
+
+            <div className='card-overflow-control'>
             {myfridge.map((myfridgelist) => (
                 <div className='myfridgelist-card' key={myfridgelist._id}>
                     <p>{myfridgelist.item}</p>
@@ -39,6 +46,8 @@ const Myfridge = () => {
                     <p className='exp-alert'>{ExpirationAlert(myfridgelist.expiration_date)}</p>
                 </div>
             ))}
+            </div>
+
             <button onClick={()=> navigate('/add_myfridge')} className='add-btn'> + </button>
             <Footer/>
         </div>
