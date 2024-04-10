@@ -4,6 +4,8 @@ import Addgrocery from'./Addgrocery'
 import Myfridge from'./Myfridge'
 import Addmyfridge from'./Addmyfridge'
 import Editmyfridge from'./Editmyfridge'
+import SearchMyfridge from './SearchMyfridge'
+import SearchGrocery from './SearchGrocery'
 import {Routes, Route} from 'react-router-dom'
 
 const Main = () => {
@@ -17,6 +19,8 @@ const Main = () => {
             <Route path="/my_fridge" element={<Myfridge />} />
             <Route path="/add_myfridge" element={<Addmyfridge />} />
             <Route path='/edit_myfridge/:id' element={<Editmyfridge />} />
+            <Route path='/search_myfridge' element={<SearchMyfridge/>} />
+            <Route path='/search_grocery' element={<SearchGrocery/>} />
         </Routes>
         </div>
     )

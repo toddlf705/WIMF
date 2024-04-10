@@ -1,4 +1,5 @@
 import Nav from './Nav'
+import Footer from './Footer'
 import checkout_icon from '../assets/checkout_icon.png'
 import delete_icon from '../assets/delete_icon.png'
 import search_icon from '../assets/search_icon.png'
@@ -53,7 +54,7 @@ const Grocerylist = () => {
             <Nav />
             <div className='nav-icons'>
                 <div className='search'>
-                    <button><img src={search_icon} width='30px'/></button>
+                    <button onClick={()=>navigate('/search_grocery')}><img src={search_icon} width='30px'/></button>
                 </div>
                 <div className='filter'>
                     <button><img src={filter_icon} width='30px'/></button>
@@ -69,8 +70,6 @@ const Grocerylist = () => {
                 </div>
             ))}
             <button onClick={()=> navigate('/add_grocery')} className='add-btn'> + </button>
-
-
         </div>
     )
 }

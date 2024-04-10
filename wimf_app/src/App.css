@@ -115,6 +115,90 @@ body {
   color: rgb(38, 80, 37);
 }
 
+.exp-alert{
+  color: red;
+  font-size: 14px;
+  margin-top: -10px;
+}
+
+/* Search Page */
+
+.search-header{
+  width: 99%;
+  height: 140px;
+  margin: 0 auto;
+}
+.search-and-back {
+  display: flex;
+  align-items: center;
+  height: 80px;
+}
+
+.search-and-back p {
+  font-size: 22px;
+  margin-left: 16px;
+}
+
+.search-and-back button {
+  margin-top: 5px;
+}
+
+.search-input {
+  width: 96%;
+  height: 38px;
+  border: solid black;
+  border-radius: 5px;
+  border-color :rgb(38, 80, 37, 0.2);
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  margin-top: -8px;
+}
+
+.search-input input {
+  width: 100%;
+  height: 35px;
+  font-size: 22px;
+  border: transparent;
+  margin-left: 5px;
+}
+
+.search-input input:focus {
+  outline: none;
+}
+
+.search-result-container {
+  width: 100%;
+  height: 690px;
+  padding: 20px;
+  background-color: rgb(38, 80, 37, 0.2);
+}
+
+.result-container {
+  height: 50px;
+  box-shadow: 2px 2px 7px rgb(137, 162, 136, 0.8);
+  padding: 15px;
+  margin: auto;
+  margin-bottom: 17px;
+  border-radius: 5px;
+  background: rgb(248, 248, 248, 0.9);
+  align-content: center;
+}
+
+.result-title {
+  display: grid;
+  grid-template-columns: 65% 35%;
+  font-size: 22px;
+}
+
+.result-detail {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  color: grey;
+  font-size: 14px;
+  margin-top: -30px;
+}
+
 /* Add Grocery */
 .nav-icons{
   height: 35px;
@@ -259,4 +343,11 @@ body {
 
 #move-to-grocery:hover {
   background-color: rgb(38, 80, 37, 0.8);
+}
+
+/* Footer */
+.footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
 }
