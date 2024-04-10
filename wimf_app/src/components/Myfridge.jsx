@@ -18,11 +18,15 @@ const Myfridge = () => {
         const diff = (expiration - today)
         const rounded = Math.floor(diff / 8.64e7)
 
+        if (rounded < -10000)
+        return 'missing expiration'
+
         if (rounded <= 0)
             return 'expired'
 
         if (rounded <= 15)
             return `expires in ${rounded} days`
+
     }
 
     return(

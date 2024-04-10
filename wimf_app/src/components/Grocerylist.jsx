@@ -20,8 +20,11 @@ const Grocerylist = () => {
 
     const handleDeleteGrocery = async (groceryId) => {
         try {
+            const grabItem = groceries.find(grocery => grocery._id === groceryId)
+
             await axios.delete(`http://localhost:3001/grocerylist/${groceryId}`)
             setGrocery(groceries.filter(grocery => grocery._id !== groceryId))
+            alert (`${grabItem.item} has been deleted`)
         } catch (e) {
             console.error(e)
         }
@@ -30,6 +33,7 @@ const Grocerylist = () => {
     const handleCheckout = async (id) => {
         try {
             const grabItem = groceries.find(grocery => grocery._id === id)
+            console.log(grabItem)
 
             const checkoutItem = await axios.post(`http://localhost:3001/myfridge`, grabItem)
 
