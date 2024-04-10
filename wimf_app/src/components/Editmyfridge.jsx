@@ -9,7 +9,7 @@ import { GroceryContext } from '../context/GroceryContext'
 const Editmyfridge = () => {
     const { myfridge, setMyfridge } = useContext(MyfridgeContext)
     const { groceries, setGrocery } = useContext(GroceryContext)
-    const [update, setUpdate] = useState()
+    const [update, setUpdate] = useState('')
     const { id } = useParams()
     const navigate = useNavigate()
 
