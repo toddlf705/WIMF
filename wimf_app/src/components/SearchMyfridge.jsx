@@ -1,4 +1,5 @@
 import search_icon from '../assets/search_icon.png'
+import edit_icon from '../assets/edit_icon.png'
 import { useNavigate } from 'react-router-dom'
 import React, { useState, useContext } from 'react'
 import { MyfridgeContext } from '../context/MyfridgeContext'
@@ -20,7 +21,6 @@ const SearchMyfridge = () => {
         setResults([''])
         if(value)
         setResults(fridgeResults)
-        console.log(results)
     }
 
     const handleChange = (value) => {
@@ -51,13 +51,18 @@ const SearchMyfridge = () => {
             <div className='search-result-container'>
                 {results.map((result, id)=> 
                     <div key={id} className='result-container'> 
-                        <div className='result-title'>
-                            <p>{result.item}</p>
-                            <p>{result.quantity}</p>
+                        <div>
+                            <div className='result-title'>
+                                <p>{result.item}</p>
+                                <p>{result.quantity}</p>
+                            </div>
+                            <div className='result-detail'>
+                                <p>brand: {result.brand}</p>
+                                <p>store: {result.purchased_store}</p>
+                            </div>
                         </div>
-                        <div className='result-detail'>
-                            <p>brand: {result.brand}</p>
-                            <p>store: {result.purchased_store}</p>
+                        <div>
+                            <button onClick={()=>navigate(`/edit_myfridge/${result._id}`)}><img src={edit_icon} width='50px'/></button>
                         </div>
                     </div>
                 )}

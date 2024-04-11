@@ -114,7 +114,7 @@ const Editmyfridge = () => {
     return(
         <div className='Editmyfridge-container'>
             <Nav/>
-            <button onClick={()=>navigate('/my_fridge')} className='back-btn'>←</button>
+            <button onClick={()=>navigate(-1)} className='back-btn'>←</button>
             <div className='form-container-myfridge'>
                 <div className='fridge-input'>
                     <label>Item:</label>

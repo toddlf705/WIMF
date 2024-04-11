@@ -6,10 +6,11 @@ const Nav = () => {
     return (
         <div className='nav-container'>
             <div className='nav'>
-                <button onClick={()=>navigate('/grocery_list')}>Grocery List</button>
-            </div>
-            <div className='nav'>
-                <button onClick={()=>navigate('/my_fridge')}>My Fridge</button>
+                <div className='tabs'>
+                    <button onClick={()=>navigate('/grocery_list')}>Grocery List</button>
+                    <button onClick={()=>navigate('/my_fridge')}>My Fridge</button>
+                </div>
+                <div className='animation start-home'></div>
             </div>
         </div>
     )
